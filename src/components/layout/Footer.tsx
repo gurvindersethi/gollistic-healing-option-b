@@ -10,7 +10,6 @@ export function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-[42px] sm:grid-cols-3">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="font-ekonkar text-2xl text-gold">ੴ</span>
               <span className="font-heading text-xl font-semibold text-[#FBF7EC]">{site.shortName}</span>
             </div>
             <p className="max-w-[280px] text-[14.5px] leading-relaxed text-[#9C9484]">{site.footerBlurb}</p>

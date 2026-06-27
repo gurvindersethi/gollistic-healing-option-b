@@ -79,6 +79,20 @@ const therapies = [
       "Therapeutic taping supports muscles and joints through movement and recovery, easing swelling and strain — without restricting your natural range of motion.",
     footer: "Joint support, swelling, recovery",
   },
+  {
+    icon: "vaccines",
+    title: "Needling Acupuncture",
+    description:
+      "Fine, sterile needles are placed at precise points along the body's energy pathways to relieve pain, release tension, and restore the natural flow of healing energy.",
+    footer: "Chronic pain, tension, energy balance",
+  },
+  {
+    icon: "bolt",
+    title: "Electroacupuncture (EAV)",
+    description:
+      "Electroacupuncture according to Dr. Voll measures the body's electrical energy at precise skin points to identify imbalances, then applies a gentle electrical current to support the body's own healing response.",
+    footer: "Diagnosis-guided, whole-body balance",
+  },
 ];
 
 const processSteps = [
@@ -170,7 +184,7 @@ export default function HealingPage() {
         stats={[
           { value: "$60", label: "per home visit" },
           { value: "45–60", label: "minutes, unhurried" },
-          { value: "5", label: "healing modalities" },
+          { value: "7", label: "healing modalities" },
         ]}
         image={{
           src: "/images/therapies.png",
@@ -339,7 +353,7 @@ export default function HealingPage() {
             <div className="flex flex-col gap-3.5">
               {[
                 "A full, unhurried 45–60 minute visit",
-                "Personalized blend of all five modalities",
+                "Personalized blend of all seven modalities",
                 "Aftercare guidance to take home",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 text-[15px] font-medium text-[#52493B]">

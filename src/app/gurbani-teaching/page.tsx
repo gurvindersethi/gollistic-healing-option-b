@@ -9,6 +9,7 @@ import { DarkSection } from "@/components/sections/DarkSection";
 import { ContactMethodRow } from "@/components/sections/ContactMethodRow";
 import { BookingForm } from "@/components/sections/BookingForm";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { Button } from "@/components/ui/Button";
 import { contact } from "@/content/shared/site";
 
 export const metadata: Metadata = {
@@ -65,8 +66,8 @@ const formatCards = [
   },
   {
     icon: "volunteer_activism",
-    title: "Taught as seva",
-    description: "Sharing Gurbani is a gift, not a transaction. Come with an open heart — that is enough.",
+    title: "Affordable & personal",
+    description: "Every class is taught with full attention and an open heart, at $50 per session.",
   },
 ];
 
@@ -86,7 +87,7 @@ export default function GurbaniTeachingPage() {
         stats={[
           { value: "All ages", label: "children to elders" },
           { value: "1-on-1", label: "& small groups" },
-          { value: "No charge", label: "taught as seva" },
+          { value: "$50", label: "per session" },
         ]}
         image={{
           src: "/images/gurbani-teaching.png",
@@ -173,7 +174,7 @@ export default function GurbaniTeachingPage() {
 
       <section className="border-t border-border-warm bg-band">
         <Container className="py-24">
-          <SectionIntro eyebrow="How classes work" title="Flexible, personal, and offered as seva." className="mb-[54px]" />
+          <SectionIntro eyebrow="How classes work" title="Flexible, personal teaching for every learner." className="mb-[54px]" />
           <div className="grid gap-[22px] sm:grid-cols-3">
             {formatCards.map((card) => (
               <div key={card.title} className="rounded-[22px] border border-border-warm bg-card p-8 text-center">
@@ -182,6 +183,57 @@ export default function GurbaniTeachingPage() {
                 <p className="text-[14.5px] leading-relaxed text-muted">{card.description}</p>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="grid gap-[60px] py-24 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">
+              Simple, honest pricing
+            </div>
+            <h2 className="my-4 font-heading text-4xl font-semibold leading-[1.15] text-ink">
+              One class. One fair price.
+            </h2>
+            <p className="mb-[26px] max-w-[440px] text-base leading-relaxed text-muted">
+              No packages, no pressure to commit. Every session is personal, patient, and matched to where you are
+              in your learning.
+            </p>
+            <div className="flex flex-col gap-3.5">
+              {["A full, unhurried session", "1-on-1 or small group teaching", "Reading, santhia, vichar, or kirtan — your choice"].map(
+                (item) => (
+                  <div key={item} className="flex items-center gap-3 text-[15px] font-medium text-[#52493B]">
+                    <MaterialIcon name="check_circle" className="text-xl text-sage" />
+                    {item}
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-[26px] border border-border-warm-2 bg-card p-10 shadow-[0_26px_60px_rgba(78,70,54,0.12)]">
+            <div className="absolute right-0 top-0 rounded-bl-2xl rounded-tr-[26px] bg-gold px-[18px] py-2 text-xs font-bold tracking-wide text-ink">
+              PER SESSION
+            </div>
+            <div className="mt-3.5 flex items-end gap-2">
+              <span className="font-heading text-[62px] font-semibold leading-none text-ink">$50</span>
+              <span className="mb-[11px] text-[15px] font-semibold text-soft-muted">per class</span>
+            </div>
+            <p className="my-2 mb-[26px] text-[13.5px] text-soft-muted">Online or in person, Bakersfield area.</p>
+            <div className="mb-[26px] flex gap-3.5 border-y border-[#EDE2CC] py-[18px]">
+              <div className="flex-1">
+                <div className="text-xs font-bold uppercase tracking-wide text-gold-deep-2">Format</div>
+                <div className="mt-1 text-[15.5px] font-semibold text-ink">Online or in person</div>
+              </div>
+              <div className="w-px bg-[#EDE2CC]" />
+              <div className="flex-1">
+                <div className="text-xs font-bold uppercase tracking-wide text-gold-deep-2">Group size</div>
+                <div className="mt-1 text-[15.5px] font-semibold text-ink">1-on-1 or small group</div>
+              </div>
+            </div>
+            <Button href="#contact" variant="sage" icon="arrow_forward" className="w-full justify-center rounded-2xl">
+              Book a Slot
+            </Button>
           </div>
         </Container>
       </section>
@@ -205,13 +257,13 @@ export default function GurbaniTeachingPage() {
           </div>
           <div className="rounded-3xl border border-border-warm-2 bg-card p-9 shadow-[0_20px_50px_rgba(78,70,54,0.1)]">
             <BookingForm
-              heading="Enquire about a class"
+              heading="Book a Class"
               messageLabel="What would you like to learn?"
               messagePlaceholder="Reading, kirtan, for my child, daily nitnem…"
-              submitLabel="Send enquiry"
+              submitLabel="Book Now — $50/session"
               successTitle="Waheguru — thank you"
-              successBody="I'll be in touch soon to welcome you to a class."
-              footnote="Shared freely, as seva."
+              successBody="Your booking request is on its way. I'll confirm your time soon."
+              footnote="$50 per session, online or in person."
             />
           </div>
         </Container>

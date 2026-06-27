@@ -74,21 +74,32 @@ export default function AboutPage() {
           <div>
             <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">My story</div>
             <h2 className="my-3.5 font-heading text-[34px] font-semibold leading-[1.18] text-ink">
-              Drawn to ease the suffering of others.
+              A passionate exponent of Gurbani.
             </h2>
             <p className="mb-4 text-base leading-relaxed text-ink-secondary">
-              Over the years I have gathered a quiet collection of gentle healing practices — Sujok, auricular
-              therapy, cupping, magnet therapy, and taping — and learned to weave them together for whatever a
-              person&apos;s body needs. None of it is rushed. None of it is forced.
+              For more than 40 years, S. Kanwaljit Singh has called the United States home — and for just as long,
+              he has looked for ways to give back to the Guru. For the past two decades, he has spent four to six
+              weeks of every year travelling to the United Kingdom, India, Bangkok, Malaysia, Singapore, Dubai, and
+              Australia, leading camps, seminars, and workshops, and offering Kirtan, Katha, and lectures wherever
+              he is welcomed.
             </p>
             <p className="mb-4 text-base leading-relaxed text-ink-secondary">
-              Alongside this work, I coach those navigating life&apos;s difficulties and teach Gurbani and Kirtan to
-              anyone who wishes to learn. Different paths, but the same quiet purpose: to help people find calm,
-              balance, and a deeper sense of belonging.
+              His forte is Sri Guru Granth Sahib and Gurbani, held with a singular faith —{" "}
+              <span className="font-gurmukhi">ਸਤਿਗੁਰ ਕੀ ਬਾਣੀ ਸਤਿ ਸਰੂਪ ਹੈ, ਗੁਰਬਾਣੀ ਬਣੀਐ।</span> — that the Guru&apos;s
+              word is truth itself, and that a life well lived becomes Gurbani in motion.
+            </p>
+            <p className="mb-4 text-base leading-relaxed text-ink-secondary">
+              He brings to this work a broad grounding in Western and Eastern literature, music, and psychology,
+              and often reflects that Guru Nanak, through Gurbani, was the world&apos;s truest psychologist. It is
+              why his teaching leans so heavily on introspection —{" "}
+              <span className="font-gurmukhi">ਮਨ ਤੂੰ ਜੋਤਿ ਸਰੂਪੁ ਹੈ ਆਪਣਾ ਮੂਲ ਪਛਾਣਿ</span>{" "}
+              <span className="italic">(&quot;O mind, you are the embodiment of the Divine Light — recognize your
+              own origin.&quot;)</span> He describes himself, simply, as a passionate exponent and apostle of
+              Gurbani.
             </p>
             <p className="text-base leading-relaxed text-ink-secondary">
-              I serve Bakersfield, California, in person, and welcome those who wish to connect online from
-              anywhere in the world.
+              Alongside this calling, he offers Gollistic Healing and life coaching in Bakersfield, California, in
+              person, and welcomes those who wish to connect online from anywhere in the world.
             </p>
           </div>
         </Container>

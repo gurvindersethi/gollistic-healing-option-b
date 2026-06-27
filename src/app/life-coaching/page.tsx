@@ -84,7 +84,6 @@ export default function LifeCoachingPage() {
         stats={[
           { value: "1-on-1", label: "personal sessions" },
           { value: "Online", label: "or in person" },
-          { value: "Seva", label: "no judgment, ever" },
         ]}
         image={{
           src: "/images/life-coaching.png",
@@ -152,7 +151,7 @@ export default function LifeCoachingPage() {
         <Container className="grid gap-[60px] py-24 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">
-              Begin a conversation
+              Book a session
             </div>
             <h2 className="my-3.5 font-heading text-4xl font-semibold leading-[1.15] text-ink">
               Whatever you&apos;re carrying — you don&apos;t have to carry it alone.
@@ -169,12 +168,12 @@ export default function LifeCoachingPage() {
           </div>
           <div className="rounded-3xl border border-border-warm-2 bg-card p-9 shadow-[0_20px_50px_rgba(78,70,54,0.1)]">
             <BookingForm
-              heading="Request a conversation"
+              heading="Book a Session Slot"
               messageLabel="What's on your mind?"
               messagePlaceholder="Share as much or as little as you like…"
-              submitLabel="Send request"
-              successTitle="Thank you for reaching out"
-              successBody="I'll respond personally, soon, to arrange a time to talk."
+              submitLabel="Book a Session Slot"
+              successTitle="Your session is on its way to being booked"
+              successBody="Thank you for reaching out. I'll confirm a time that suits you soon."
               footnote="Held in confidence, offered as seva."
             />
           </div>

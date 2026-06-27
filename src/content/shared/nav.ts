@@ -14,7 +14,7 @@ export const primaryNav: NavLink[] = [
 export const ctaByPath: Record<string, { label: string; icon: string; href: string }> = {
   "/": { label: "Book a Visit", icon: "spa", href: "/contact" },
   "/life-coaching": { label: "Book a Session", icon: "self_improvement", href: "/contact" },
-  "/gurbani-teaching": { label: "Join a Class", icon: "menu_book", href: "/contact" },
+  "/gurbani-teaching": { label: "Book a Class", icon: "menu_book", href: "/contact" },
   "/about": { label: "Book a Visit", icon: "spa", href: "/contact" },
   "/contact": { label: "Send a message", icon: "send", href: "/contact" },
 };
