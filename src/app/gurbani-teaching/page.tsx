@@ -1,0 +1,221 @@
+import type { Metadata } from "next";
+import { Container } from "@/components/layout/Container";
+import { HeroTwoColumn } from "@/components/sections/HeroTwoColumn";
+import { TrustStrip } from "@/components/sections/TrustStrip";
+import { SectionIntro } from "@/components/sections/SectionIntro";
+import { IconCard } from "@/components/sections/IconCard";
+import { CTACard } from "@/components/sections/CTACard";
+import { DarkSection } from "@/components/sections/DarkSection";
+import { ContactMethodRow } from "@/components/sections/ContactMethodRow";
+import { BookingForm } from "@/components/sections/BookingForm";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { contact } from "@/content/shared/site";
+
+export const metadata: Metadata = {
+  title: "Gurbani Teaching — Read, Understand & Live Gurbani",
+  description:
+    "From your first Gurmukhi letters to singing shabads with feeling, taught gently and patiently as seva. Online and in person, Bakersfield, CA.",
+};
+
+const learnAreas = [
+  {
+    glyph: "ੳ",
+    title: "Reading Gurmukhi",
+    description: "The Painti Akhri (35 letters), vowels, and how they join — until reading flows naturally and with confidence.",
+  },
+  {
+    icon: "record_voice_over",
+    title: "Santhia & pronunciation",
+    description: "Careful, correct pronunciation of each word — so Gurbani is recited the way it is meant to be spoken.",
+  },
+  {
+    icon: "translate",
+    title: "Meaning & vichar",
+    description: "Understanding shabads — their meaning and reflection — so the words guide how you live, not just what you read.",
+  },
+  {
+    icon: "music_note",
+    title: "Kirtan & raag",
+    description: "Singing shabads with melody and devotion — an introduction to keertan and the feeling behind the sound.",
+  },
+  {
+    icon: "wb_twilight",
+    title: "Nitnem & daily practice",
+    description: "Building a gentle, steady daily routine of the banis — a discipline that anchors the mind and the day.",
+  },
+];
+
+const whoItsFor = [
+  { icon: "child_care", label: "Children taking their first steps" },
+  { icon: "groups", label: "Youth & diaspora families reconnecting" },
+  { icon: "school", label: "Adults learning to read from scratch" },
+  { icon: "self_improvement", label: "Elders deepening a lifelong practice" },
+];
+
+const formatCards = [
+  {
+    icon: "videocam",
+    title: "Online or in person",
+    description: "Join from anywhere in the world, or in person in the Bakersfield area.",
+  },
+  {
+    icon: "person",
+    title: "1-on-1 or small groups",
+    description: "Personal attention at your own pace, or learn alongside family and friends.",
+  },
+  {
+    icon: "volunteer_activism",
+    title: "Taught as seva",
+    description: "Sharing Gurbani is a gift, not a transaction. Come with an open heart — that is enough.",
+  },
+];
+
+export default function GurbaniTeachingPage() {
+  return (
+    <>
+      <HeroTwoColumn
+        eyebrow="Gurbani & Kirtan · Online & in person"
+        heading={
+          <>
+            Learn to read, understand, and <em className="font-medium italic text-sage">live</em> Gurbani.
+          </>
+        }
+        lead="From your first Gurmukhi letters to singing shabads with feeling, I teach gently and patiently — so the words don't just reach the tongue, but settle into the heart."
+        primaryCta={{ label: "Join a class", href: "#contact" }}
+        secondaryCta={{ label: "What you'll learn", href: "#learn" }}
+        stats={[
+          { value: "All ages", label: "children to elders" },
+          { value: "1-on-1", label: "& small groups" },
+          { value: "No charge", label: "taught as seva" },
+        ]}
+        image={{
+          src: "/images/gurbani-teaching.png",
+          alt: "Gurbani Teaching, the way of life — reading Gurmukhi, santhia, meaning & vichar, kirtan & raag, and nitnem",
+        }}
+        floatingChip={{ icon: "music_note", title: "Kirtan, with feeling", subtitle: "Not just the notes" }}
+      />
+
+      <TrustStrip
+        items={[
+          { icon: "child_care", label: "Patient with beginners" },
+          { icon: "record_voice_over", label: "Correct pronunciation (santhia)" },
+          { icon: "translate", label: "Meaning, not just recitation" },
+          { icon: "videocam", label: "Learn from anywhere" },
+        ]}
+      />
+
+      <section id="learn">
+        <Container className="py-24">
+          <SectionIntro
+            eyebrow="What you'll learn"
+            title="A path from first letters to living wisdom."
+            lead="We start wherever you are. Each step is taught with care, never rushed, and always with meaning."
+            className="mb-14"
+          />
+          <div className="grid gap-[22px] sm:grid-cols-2 lg:grid-cols-3">
+            {learnAreas.map((area) => (
+              <IconCard key={area.title} {...area} />
+            ))}
+            <CTACard
+              glyph="ੴ"
+              title="Start where you are"
+              description="Never read a word of Gurmukhi? That's the perfect place to begin. We'll go one letter at a time."
+              ctaLabel="Begin learning"
+              ctaHref="#contact"
+            />
+          </div>
+        </Container>
+      </section>
+
+      <DarkSection>
+        <Container className="mx-auto max-w-[860px] py-24 text-center">
+          <div className="mb-[30px] text-[13px] font-bold uppercase tracking-[1.5px] text-gold">Mool Mantar</div>
+          <div className="font-gurmukhi text-[34px] font-bold leading-[1.7] tracking-wide text-[#FBF7EC]">
+            ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ
+            <br />
+            ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ ॥
+          </div>
+          <p className="mx-auto mt-8 max-w-[560px] text-base italic leading-relaxed text-[#B8B1A1]">
+            &quot;One Universal Creator. Truth is the Name. Creative Being, without fear, without hatred. Beyond
+            death, beyond birth, self-existent — known by the Guru&apos;s grace.&quot;
+          </p>
+          <div className="mt-[30px] text-[13.5px] text-soft-muted">
+            A line at a time, we read it, sound it, and sit with what it means.
+          </div>
+        </Container>
+      </DarkSection>
+
+      <section>
+        <Container className="grid gap-16 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">Who it&apos;s for</div>
+            <h2 className="my-3.5 max-w-[440px] font-heading text-4xl font-semibold leading-[1.15] text-ink">
+              For anyone drawn to the words — at any age, from any beginning.
+            </h2>
+            <p className="max-w-[470px] text-base leading-relaxed text-muted">
+              Whether you&apos;re a parent hoping your children connect with their roots, a young adult reclaiming
+              the language, or an elder deepening a lifelong practice — there&apos;s a gentle place for you here.
+            </p>
+          </div>
+          <div className="flex flex-col gap-[13px]">
+            {whoItsFor.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-3.5 rounded-2xl border border-border-warm bg-card px-5 py-4"
+              >
+                <MaterialIcon name={item.icon} className="text-[22px] text-sage" />
+                <span className="text-[15px] font-semibold text-[#52493B]">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-warm bg-band">
+        <Container className="py-24">
+          <SectionIntro eyebrow="How classes work" title="Flexible, personal, and offered as seva." className="mb-[54px]" />
+          <div className="grid gap-[22px] sm:grid-cols-3">
+            {formatCards.map((card) => (
+              <div key={card.title} className="rounded-[22px] border border-border-warm bg-card p-8 text-center">
+                <MaterialIcon name={card.icon} className="text-[34px] text-sage" />
+                <h3 className="my-2 font-heading text-xl font-semibold text-ink">{card.title}</h3>
+                <p className="text-[14.5px] leading-relaxed text-muted">{card.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="contact">
+        <Container className="grid gap-[60px] py-24 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">Join a class</div>
+            <h2 className="my-3.5 font-heading text-4xl font-semibold leading-[1.15] text-ink">
+              Take the first step toward the words.
+            </h2>
+            <p className="mb-[34px] max-w-[420px] text-base leading-relaxed text-muted">
+              Tell me a little about yourself or your child, and what you&apos;d like to learn. I&apos;ll be in
+              touch to find a time.
+            </p>
+            <div className="flex flex-col gap-[18px]">
+              <ContactMethodRow icon="call" label="Call or text" value={contact.phoneDisplay} href={`tel:${contact.phoneHref}`} />
+              <ContactMethodRow icon="mail" label="Email" value={contact.email} href={`mailto:${contact.email}`} />
+              <ContactMethodRow icon="play_circle" label="Listen to kirtan" value="YouTube · @kjsfalcon51" href="https://www.youtube.com/@kjsfalcon51" />
+            </div>
+          </div>
+          <div className="rounded-3xl border border-border-warm-2 bg-card p-9 shadow-[0_20px_50px_rgba(78,70,54,0.1)]">
+            <BookingForm
+              heading="Enquire about a class"
+              messageLabel="What would you like to learn?"
+              messagePlaceholder="Reading, kirtan, for my child, daily nitnem…"
+              submitLabel="Send enquiry"
+              successTitle="Waheguru — thank you"
+              successBody="I'll be in touch soon to welcome you to a class."
+              footnote="Shared freely, as seva."
+            />
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}

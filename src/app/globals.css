@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Noto Sans Gurmukhi";
+  src: url("/fonts/NotoSansGurmukhi-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Gurmukhi";
+  src: url("/fonts/NotoSansGurmukhi-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ek Onkar";
+  src: url("/fonts/EkOnkarProduction.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bone: #faf5ec;
+  --color-band: #f2eadb;
+  --color-card: #fffdf8;
+  --color-field: #faf5ec;
+  --color-ink: #2a2620;
+  --color-ink-secondary: #5c5345;
+  --color-muted: #6e6557;
+  --color-soft-muted: #857a68;
+  --color-soft-muted-2: #a99e8a;
+  --color-sage: #5e6b4c;
+  --color-sage-hover: #4e5a3f;
+  --color-sage-deep: #454f38;
+  --color-sage-deep-2: #414b33;
+  --color-sage-deep-3: #3c4430;
+  --color-dark: #2d2a22;
+  --color-gold: #c49a48;
+  --color-gold-deep: #b8893a;
+  --color-gold-deep-2: #9a7a38;
+  --color-gold-light: #e6c77e;
+  --color-gold-light-2: #cdb984;
+  --color-gold-light-3: #d8c698;
+  --color-terracotta: #bc7150;
+  --color-border-warm: #ece0cc;
+  --color-border-warm-2: #e8dcc4;
+  --color-border-warm-3: #e4d7be;
+  --color-border-warm-4: #e2d6be;
+  --color-pill-bg: #f1e8d6;
+  --color-pill-border: #e6d8be;
+  --color-tile-bg: #eef0e4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bone: var(--color-bone);
+  --color-band: var(--color-band);
+  --color-card: var(--color-card);
+  --color-field: var(--color-field);
+  --color-ink: var(--color-ink);
+  --color-ink-secondary: var(--color-ink-secondary);
+  --color-muted: var(--color-muted);
+  --color-soft-muted: var(--color-soft-muted);
+  --color-soft-muted-2: var(--color-soft-muted-2);
+  --color-sage: var(--color-sage);
+  --color-sage-hover: var(--color-sage-hover);
+  --color-sage-deep: var(--color-sage-deep);
+  --color-sage-deep-2: var(--color-sage-deep-2);
+  --color-sage-deep-3: var(--color-sage-deep-3);
+  --color-dark: var(--color-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-hover: var(--color-gold-deep);
+  --color-gold-deep: var(--color-gold-deep);
+  --color-gold-deep-2: var(--color-gold-deep-2);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-light-2: var(--color-gold-light-2);
+  --color-gold-light-3: var(--color-gold-light-3);
+  --color-terracotta: var(--color-terracotta);
+  --color-border-warm: var(--color-border-warm);
+  --color-border-warm-2: var(--color-border-warm-2);
+  --color-border-warm-3: var(--color-border-warm-3);
+  --color-border-warm-4: var(--color-border-warm-4);
+  --color-pill-bg: var(--color-pill-bg);
+  --color-pill-border: var(--color-pill-border);
+  --color-tile-bg: var(--color-tile-bg);
+
+  --font-heading: var(--font-playfair);
+  --font-sans: var(--font-mulish);
+  --font-gurmukhi: "Noto Sans Gurmukhi", sans-serif;
+  --font-ekonkar: "Ek Onkar", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-sans), -apple-system, sans-serif;
+}
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: "opsz" 40, "wght" 300;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+::selection {
+  background: #d9c58a;
+  color: #2a2620;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sage);
+  outline-offset: 2px;
 }
