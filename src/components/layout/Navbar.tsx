@@ -18,7 +18,6 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border-warm bg-bone/80 backdrop-blur-md">
       <Container className="flex h-[74px] items-center justify-between">
         <Link href="/" className="flex items-center gap-3 text-ink" onClick={() => setIsMenuOpen(false)}>
-          <span className="font-ekonkar text-2xl leading-none text-gold-deep">ੴ</span>
           <span className="font-heading text-xl font-semibold">{site.shortName}</span>
         </Link>
 
