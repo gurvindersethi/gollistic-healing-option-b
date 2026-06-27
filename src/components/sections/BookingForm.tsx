@@ -11,6 +11,7 @@ type BookingFormProps = {
   messageLabel: string;
   messagePlaceholder: string;
   selectOptions?: string[];
+  defaultInterest?: string;
   submitLabel: string;
   successTitle: string;
   successBody: string;
@@ -30,6 +31,7 @@ export function BookingForm({
   messageLabel,
   messagePlaceholder,
   selectOptions,
+  defaultInterest,
   submitLabel,
   successTitle,
   successBody,
@@ -41,6 +43,8 @@ export function BookingForm({
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<BookingFormValues>({
     resolver: zodResolver(bookingFormSchema),
@@ -48,12 +52,20 @@ export function BookingForm({
       name: "",
       phone: "",
       email: "",
-      interest: "",
+      interest: defaultInterest ?? "",
       preferredDate: "",
       preferredTime: "",
       message: "",
     },
   });
+
+  const currentInterest = watch("interest");
+
+  useEffect(() => {
+    if (defaultInterest && !currentInterest) {
+      setValue("interest", defaultInterest, { shouldDirty: true, shouldValidate: true });
+    }
+  }, [defaultInterest, currentInterest, setValue]);
 
   useEffect(() => {
     if (!toast) {
@@ -82,7 +94,10 @@ export function BookingForm({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          interest: values.interest || defaultInterest || "",
+        }),
       });
 
       const data = await response.json();

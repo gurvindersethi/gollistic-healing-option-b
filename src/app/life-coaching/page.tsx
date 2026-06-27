@@ -171,6 +171,7 @@ export default function LifeCoachingPage() {
               heading="Book a Session Slot"
               messageLabel="What's on your mind?"
               messagePlaceholder="Share as much or as little as you like…"
+              defaultInterest="Life Coaching"
               submitLabel="Book a Session Slot"
               successTitle="Your session is on its way to being booked"
               successBody="Thank you for reaching out. I'll confirm a time that suits you soon."

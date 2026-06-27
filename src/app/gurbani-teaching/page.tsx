@@ -260,6 +260,7 @@ export default function GurbaniTeachingPage() {
               heading="Book a Class"
               messageLabel="What would you like to learn?"
               messagePlaceholder="Reading, kirtan, for my child, daily nitnem…"
+              defaultInterest="Gurbani Teaching"
               submitLabel="Book Now — $50/session"
               successTitle="Waheguru — thank you"
               successBody="Your booking request is on its way. I'll confirm your time soon."

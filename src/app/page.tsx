@@ -469,6 +469,7 @@ export default function HealingPage() {
               heading="Request a home visit"
               messageLabel="What's troubling you?"
               messagePlaceholder="Tell me a little about your pain or what you're hoping for…"
+              defaultInterest="Healing"
               submitLabel="Send request"
               successTitle="Your request is on its way"
               successBody="Thank you for reaching out. I'll respond personally, soon, to arrange your visit."
