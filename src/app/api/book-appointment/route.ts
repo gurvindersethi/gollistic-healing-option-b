@@ -1,15 +1,11 @@
 import { createElement } from "react";
 import { NextResponse } from "next/server";
-import { z } from "zod";
 import { sendEmail } from "@/lib/email/resend";
 import { AdminBookingEmail } from "@/lib/email/templates/AdminBookingEmail";
 import { CustomerConfirmationEmail } from "@/lib/email/templates/CustomerConfirmationEmail";
 import { bookingFormSchema } from "@/lib/validations/booking";
 
-const bookingApiSchema = bookingFormSchema.extend({
-  preferredDate: z.string().trim().optional(),
-  preferredTime: z.string().trim().optional(),
-});
+const bookingApiSchema = bookingFormSchema;
 
 export async function POST(request: Request) {
   try {

@@ -45,9 +45,12 @@ export function BookingForm({
     reset,
     setValue,
     watch,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<BookingFormValues>({
     resolver: zodResolver(bookingFormSchema),
+    mode: "onChange",
+    reValidateMode: "onChange",
+    shouldFocusError: false,
     defaultValues: {
       name: "",
       phone: "",
@@ -83,6 +86,8 @@ export function BookingForm({
   const dateId = useId();
   const timeId = useId();
   const messageId = useId();
+
+  const isSubmitDisabled = isSubmitting || !isValid;
 
   const onSubmit = async (values: BookingFormValues) => {
     setToast(null);
@@ -194,7 +199,7 @@ export function BookingForm({
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitDisabled}
         aria-busy={isSubmitting}
         className="mt-1 flex items-center justify-center gap-2 rounded-[13px] bg-sage py-[15px] text-[15.5px] font-bold text-bone shadow-[0_10px_24px_rgba(94,107,76,0.3)] transition hover:bg-sage-hover disabled:cursor-not-allowed disabled:opacity-80"
       >
