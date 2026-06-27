@@ -70,9 +70,6 @@ export default function AboutPage() {
                 className="h-full w-full object-cover object-[center_16%]"
               />
             </div>
-            <div className="absolute -bottom-[22px] -right-[18px] rounded-2xl bg-gold p-[14px_18px] shadow-[0_14px_30px_rgba(0,0,0,0.18)]">
-              <span className="font-ekonkar text-2xl leading-none text-ink">ੴ</span>
-            </div>
           </div>
           <div>
             <div className="text-[13px] font-bold uppercase tracking-[1.5px] text-gold-deep-2">My story</div>
