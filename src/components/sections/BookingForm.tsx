@@ -1,9 +1,8 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contact } from "@/content/shared/site";
 import { bookingFormSchema, type BookingFormValues } from "@/lib/validations/booking";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
@@ -16,6 +15,11 @@ type BookingFormProps = {
   successTitle: string;
   successBody: string;
   footnote: string;
+};
+
+type ToastState = {
+  type: "success" | "error";
+  message: string;
 };
 
 const inputClasses =
@@ -32,34 +36,68 @@ export function BookingForm({
   footnote,
 }: BookingFormProps) {
   const [isSent, setIsSent] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<BookingFormValues>({
     resolver: zodResolver(bookingFormSchema),
-    defaultValues: { name: "", phone: "", email: "", interest: "", message: "" },
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      interest: "",
+      preferredDate: "",
+      preferredTime: "",
+      message: "",
+    },
   });
+
+  useEffect(() => {
+    if (!toast) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => setToast(null), 4000);
+    return () => window.clearTimeout(timeoutId);
+  }, [toast]);
 
   const nameId = useId();
   const phoneId = useId();
   const emailId = useId();
   const interestId = useId();
+  const dateId = useId();
+  const timeId = useId();
   const messageId = useId();
 
-  const onSubmit = (values: BookingFormValues) => {
-    const subject = `${heading} from ${values.name}`;
-    const lines = [
-      `Name: ${values.name}`,
-      `Phone: ${values.phone}`,
-      `Email: ${values.email}`,
-      values.interest ? `Interested in: ${values.interest}` : null,
-      "",
-      values.message ?? "",
-    ].filter((line): line is string => line !== null);
-    const params = new URLSearchParams({ subject, body: lines.join("\n") });
-    window.location.href = `mailto:${contact.email}?${params.toString()}`;
-    setIsSent(true);
+  const onSubmit = async (values: BookingFormValues) => {
+    setToast(null);
+    setIsSent(false);
+
+    try {
+      const response = await fetch("/api/book-appointment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Your request could not be sent right now.");
+      }
+
+      reset();
+      setIsSent(true);
+      setToast({ type: "success", message: data.message || "Thank you. Your appointment request has been received." });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "We could not send your booking request right now.";
+      setToast({ type: "error", message });
+    }
   };
 
   if (isSent) {
@@ -115,6 +153,19 @@ export function BookingForm({
         </label>
       )}
 
+      <div className="flex gap-3.5">
+        <label htmlFor={dateId} className="flex flex-1 flex-col gap-[7px] text-[13px] font-bold text-muted">
+          Preferred Date
+          <input id={dateId} type="date" className={inputClasses} {...register("preferredDate")} />
+          {errors.preferredDate && <span className="text-xs font-normal text-red-700">{errors.preferredDate.message}</span>}
+        </label>
+        <label htmlFor={timeId} className="flex flex-1 flex-col gap-[7px] text-[13px] font-bold text-muted">
+          Preferred Time
+          <input id={timeId} type="time" className={inputClasses} {...register("preferredTime")} />
+          {errors.preferredTime && <span className="text-xs font-normal text-red-700">{errors.preferredTime.message}</span>}
+        </label>
+      </div>
+
       <label htmlFor={messageId} className="flex flex-col gap-[7px] text-[13px] font-bold text-muted">
         {messageLabel}
         <textarea
@@ -129,10 +180,33 @@ export function BookingForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-1 rounded-[13px] bg-sage py-[15px] text-[15.5px] font-bold text-bone shadow-[0_10px_24px_rgba(94,107,76,0.3)] hover:bg-sage-hover"
+        aria-busy={isSubmitting}
+        className="mt-1 flex items-center justify-center gap-2 rounded-[13px] bg-sage py-[15px] text-[15.5px] font-bold text-bone shadow-[0_10px_24px_rgba(94,107,76,0.3)] transition hover:bg-sage-hover disabled:cursor-not-allowed disabled:opacity-80"
       >
-        {submitLabel}
+        {isSubmitting ? (
+          <>
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-bone/70 border-t-bone" />
+            Sending…
+          </>
+        ) : (
+          submitLabel
+        )}
       </button>
+
+      {toast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className={`rounded-[12px] border px-3 py-2 text-sm ${
+            toast.type === "success"
+              ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+              : "border-red-200 bg-red-50 text-red-800"
+          }`}
+        >
+          {toast.message}
+        </div>
+      )}
+
       <p className="text-center text-xs text-soft-muted-2">{footnote}</p>
     </form>
   );

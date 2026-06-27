@@ -25,7 +25,6 @@ const contactMethods = [
     title: "Email",
     value: contact.email,
     caption: "For details and longer questions.",
-    href: `mailto:${contact.email}`,
   },
   {
     icon: "location_on",

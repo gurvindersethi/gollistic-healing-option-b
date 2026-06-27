@@ -444,7 +444,7 @@ export default function HealingPage() {
             </p>
             <div className="flex flex-col gap-[18px]">
               <ContactMethodRow icon="call" label="Call or text" value={contact.phoneDisplay} href={`tel:${contact.phoneHref}`} />
-              <ContactMethodRow icon="mail" label="Email" value={contact.email} href={`mailto:${contact.email}`} />
+              <ContactMethodRow icon="mail" label="Email" value={contact.email} />
               <ContactMethodRow icon="location_on" label="Serving" value={`${contact.serviceArea} & online`} />
             </div>
             <div className="mt-[30px] flex gap-3">

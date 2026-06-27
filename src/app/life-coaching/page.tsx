@@ -162,7 +162,7 @@ export default function LifeCoachingPage() {
             </p>
             <div className="flex flex-col gap-[18px]">
               <ContactMethodRow icon="call" label="Call or text" value={contact.phoneDisplay} href={`tel:${contact.phoneHref}`} />
-              <ContactMethodRow icon="mail" label="Email" value={contact.email} href={`mailto:${contact.email}`} />
+              <ContactMethodRow icon="mail" label="Email" value={contact.email} />
               <ContactMethodRow icon="location_on" label="Sessions" value={`Online & in person · ${contact.serviceArea}`} />
             </div>
           </div>

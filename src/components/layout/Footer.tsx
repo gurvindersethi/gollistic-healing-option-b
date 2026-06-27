@@ -32,9 +32,7 @@ export function Footer() {
               <a href={`tel:${contact.phoneHref}`} className="text-[14.5px] text-[#C7C0B0]">
                 {contact.phoneDisplay}
               </a>
-              <a href={`mailto:${contact.email}`} className="text-[14.5px] text-[#C7C0B0]">
-                Email me
-              </a>
+              <span className="text-[14.5px] text-[#C7C0B0]">{contact.email}</span>
               <span className="text-[14.5px] text-[#9C9484]">{contact.serviceArea}</span>
               <div className="mt-1 flex gap-4">
                 <a href={socials.instagram.url} className="text-[13.5px] font-semibold text-gold">

@@ -5,6 +5,8 @@ export const bookingFormSchema = z.object({
   phone: z.string().trim().min(7, "Please enter a phone number."),
   email: z.string().trim().email("Please enter a valid email address."),
   interest: z.string().trim().optional(),
+  preferredDate: z.string().trim().optional(),
+  preferredTime: z.string().trim().optional(),
   message: z.string().trim().optional(),
 });
 

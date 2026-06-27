@@ -251,7 +251,7 @@ export default function GurbaniTeachingPage() {
             </p>
             <div className="flex flex-col gap-[18px]">
               <ContactMethodRow icon="call" label="Call or text" value={contact.phoneDisplay} href={`tel:${contact.phoneHref}`} />
-              <ContactMethodRow icon="mail" label="Email" value={contact.email} href={`mailto:${contact.email}`} />
+              <ContactMethodRow icon="mail" label="Email" value={contact.email} />
               <ContactMethodRow icon="play_circle" label="Listen to kirtan" value="YouTube · @kjsfalcon51" href="https://www.youtube.com/@kjsfalcon51" />
             </div>
           </div>
